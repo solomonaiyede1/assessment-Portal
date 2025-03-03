@@ -1,0 +1,17 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5">
+    <p>
+        <center><h3>Register Below</h3></center>
+      <form class="mx-auto col-md-6" action="/register" method="post">
+        <input type="text" name="full_name" class="form-control" placeholder="Full name"><br>
+        <input type="email" name="email" class="form-control" placeholder="Email"><br>
+        <input type="text" name="phone" class="form-control" placeholder="Phone Number"><br>
+        <input type="hidden" name="role" class="form-control" value="user"><br>
+        <input type="password" name="password" class="form-control" placeholder="Password"><br>
+        <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password"><br>
+        <button class="submit" class="btn btn-primary">Register</button>
+      </form>
+    </p>
+</div>
+<%- include('partials/footer') -%>
