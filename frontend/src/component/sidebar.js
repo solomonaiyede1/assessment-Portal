@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router';
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 function Sidebar() {
 
@@ -34,7 +35,11 @@ function Sidebar() {
 
 
   return (
-    <ul style={{boxShadow: "5px 5px 5px rgba(0,0,0,0.1)", height: "100vh"}}>
+    <motion.div
+    initial={{opacity: 0, scale: 0}}
+    whileInView={{opacity:1, scale: 1}}
+    transition={{duration: 1}}>
+    <ul style={{boxShadow: "5px 5px 5px rgba(0,0,0,0.1)", height: "100vh", backgroundColor: "#09568d", marginTop: "-20px"}}>
         <li style={ulist}><Link to="/dashboard" style={list}><i class="fa fa-dashboard"></i> Dashboard</Link></li>
         <li style={ulist}><Link to="/taketest" style={list}><i class="fa fa-user-circle-o"></i> Take Test</Link></li>
         {/* <li style={ulist}><Link to="/assessment" style={list}><i class="fa fa-check"></i> Assessment</Link></li> */}
@@ -51,6 +56,7 @@ function Sidebar() {
 
         <li style={ulist}><Link  onClick={logouthandler} style={list}><i class="fa fa-sign-out"></i> Logout</Link></li>
     </ul>
+    </motion.div>
   )
 }
 
@@ -59,14 +65,14 @@ export default Sidebar;
 var list={
   textDecoration: "none",
   listStyleType: "none",
-  color: "black",
   fontFamily: "Trebuchet MS",
   fontSize: "16px",
-  fontWeight: "400"
+  fontWeight: "400",
+  color: "white"
 
 }
 
 var ulist={
   listStyleType: "none",
-  marginTop: "20px"
+  marginTop: "20px",
 }

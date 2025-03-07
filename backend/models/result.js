@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ResultSchema = new Schema({
-  candidate_name: String,
+  full_name: String,
   email: String,
   course_name: String,
-  total_score: Number,
-  percentage_score: String,
+  score: String,
   Remark: String
 },
 { timestamps: true });

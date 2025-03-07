@@ -53,14 +53,13 @@ function Dashboard() {
                 { show ? <Sidebar /> : "" }
             </Col>
             <Col md={8} style={{display: "flex", flexDirection: "row", paddingTop: "20px", justifyContent:"space-around"}}>
-                <p>You are logged in as: {user} </p>
+                <p>Welcome  {user} </p>
 
                 <Card style={{ width: '18rem', height: '10rem', boxShadow: "10px 10px 10px rgba(0,0,0,0.1)" }}>
                         <Card.Body style={{textAlign: "center"}}>
                             <Card.Title style={{fontSize: "30px", fontWeight: "700"}}>0</Card.Title>
                             <Card.Text>
-                                Test Taken<br></br>
-                                { show ? "very good" : "hide" }
+                                Test Taken
                             </Card.Text>
                         </Card.Body>
                 </Card>
@@ -93,7 +92,6 @@ export default Dashboard;
 var list={
   textDecoration: "none",
   listStyleType: "none",
-  color: "black",
   fontFamily: "Trebuchet MS",
   fontSize: "16px",
   fontWeight: "400"

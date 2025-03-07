@@ -143,12 +143,7 @@ function Question() {
                     </div>
                     <div style={{padding: "10px"}}>
                       <label>select the current option</label>
-                        <select onChange={handler} className="form-control" name="correct" required >
-                          <option value="0">First Option</option>
-                          <option value="1">Second Option</option>
-                          <option value="2">Third Option</option>
-                          <option value="3">Fourth Option</option>
-                        </select>
+                        <input type="text" onChange={handler} className="form-control" name="correct" Placeholder="Type the exact answer among the options in this text box" required />
                     </div>
                     <div>
                         <center>

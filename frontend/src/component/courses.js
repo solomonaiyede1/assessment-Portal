@@ -37,7 +37,6 @@ function Courses() {
       }
 
       const handlersub=(event)=>{
-          console.log(data)
           axios.post('http://localhost:3001/course', data)
           .then(response=> console.log(response))
           .catch(error=> console.log("Error occurred" + error))

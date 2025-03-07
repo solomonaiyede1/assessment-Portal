@@ -56,16 +56,19 @@ router.post('/register', async function(req, res){
 })
 
 
-router.post('/result', async function(req, res){
-    const { full_name, email, course_name, total_score, remark }= req.body
-    total_score=30
-    percentage_score= (total_score/grand_total)*100
-    
-     var result= new Result({full_name, email, course_name, total_score, percentage_score, remark})
-        result.save();
-    res.status(201).json({ message: "You have successfully submitted"});
+router.post("/result", async (req, res) => {
 
-})
+    const { full_name, score } = req.body
+    
+    try{
+        const result = new Result({ full_name, score });
+        await result.save();
+        res.status(201).json({ message: "Score saved successfully!" });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+  });
+  
 
 
 
@@ -83,9 +86,10 @@ router.post('/login',  async function(req, res){
         const check= await bcrypt.compare(password, user.password)
         if(check){
             req.session.full_name= user.full_name
+            req.session.email= user.email
             req.session.role= user.role
             req.session.save()
-            res.json({full_name: req.session.full_name, email: email, role: user.role})
+            res.json({full_name: req.session.full_name, email: req.session.email, role: user.role})
            
         }
         if(!check){
@@ -97,7 +101,7 @@ router.post('/login',  async function(req, res){
 })
 
 router.get("/test", (req, res) => {
-    res.json({message: req.session.full_name, role: req.session.role})
+    res.json({message: req.session.full_name, email: req.session.email, role: req.session.role})
   });
 
 
