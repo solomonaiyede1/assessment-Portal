@@ -20,10 +20,13 @@ app.use(
       secret: 'your_secret_key', // Change this for security
       resave: false,
       saveUninitialized: true,
-      cookie: { secure: false, httpOnly: true, maxAge: 60000 * 60 } // Expires in 1 min
+      cookie: { 
+          secure: false, 
+          httpOnly: true, 
+          maxAge: 1000 * 60 * 60 * 2 // Expires in 2 hours
+      } 
   })
 );
-
 
 
 

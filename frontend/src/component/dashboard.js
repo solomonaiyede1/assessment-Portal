@@ -41,9 +41,6 @@ function Dashboard() {
             <Button onClick={handler} className="btn btn-light" id="bar">
             <i className="fa fa-bars" aria-hidden="true" style={{fontSize: "24px"}}></i>
             </Button>
-                {/* <ul style={{listStyleType: "none"}} id="user">
-                    <li><i class="fa fa-bell" ></i> &nbsp;&nbsp;<i class="fa fa-user-circle-o" style={{fontSize: "18px"}}></i></li>
-                </ul> */}
             </div>
         </Col>
       </Row>
@@ -52,36 +49,62 @@ function Dashboard() {
           <Col md={2} className="header" >
                 { show ? <Sidebar /> : "" }
             </Col>
-            <Col md={8} style={{display: "flex", flexDirection: "row", paddingTop: "20px", justifyContent:"space-around"}}>
-                <p>Welcome  {user} </p>
+            <Col md={8} >
+                <div style={{display: "flex", flexWrap: "wrap", flexDirection: "row", paddingTop: "20px", justifyContent:"space-around"}}>
+            <div className='mx-auto alert alert-info' style={{width: "100%", height: "50px", fontSize: "20px", fontFamily: "calibri"}}>
+                Welcome {user} to Birotojob Assessment Portal 
+                </div>
 
-                <Card style={{ width: '18rem', height: '10rem', boxShadow: "10px 10px 10px rgba(0,0,0,0.1)" }}>
+                <Card className="bg-primary" style={{ width: '18rem', height: '10rem', boxShadow: "10px 10px 10px rgba(0,0,0,0.1)" }}>
                         <Card.Body style={{textAlign: "center"}}>
-                            <Card.Title style={{fontSize: "30px", fontWeight: "700"}}>0</Card.Title>
-                            <Card.Text>
+                            <Card.Title style={{fontSize: "30px"}}><a href="/taketest" style={{textDecoration: "none", color: "white"}}>Take Test</a></Card.Title>
+                            {/* <Card.Text>
                                 Test Taken
-                            </Card.Text>
+                            </Card.Text> */}
                         </Card.Body>
                 </Card>
 
-                <Card style={{ width: '18rem', height: '10rem', boxShadow: "10px 10px 10px rgba(0,0,0,0.1)" }}>
+                <Card className="bg-primary" style={{ width: '18rem', height: '10rem', boxShadow: "10px 10px 10px rgba(0,0,0,0.1)" }}>
                         <Card.Body style={{textAlign: "center"}}>
-                            <Card.Title style={{fontSize: "30px", fontWeight: "700"}}>6</Card.Title>
-                            <Card.Text>
+                            <Card.Title style={{fontSize: "30px"}}><a href="/resources" style={{textDecoration: "none", color: "white"}}>Assess Resources</a></Card.Title>
+                            {/* <Card.Text>
                                 Test Scheduled
-                            </Card.Text>
+                            </Card.Text> */}
                         </Card.Body>
                 </Card>
 
-                <Card style={{ width: '18rem', height: '10rem' , boxShadow: "10px 10px 10px rgba(0,0,0,0.1)" }}>
+                <Card className="bg-primary" style={{ width: '18rem', height: '10rem' , boxShadow: "10px 10px 10px rgba(0,0,0,0.1)" }}>
                         <Card.Body style={{textAlign: "center"}}>
-                            <Card.Title style={{fontSize: "30px", fontWeight: "700"}}>0</Card.Title>
-                            <Card.Text>
+                            <Card.Title style={{fontSize: "30px"}}><a href="/help" style={{textDecoration: "none", color: "white"}}>Visit Help Center</a></Card.Title>
+                            {/* <Card.Text>
                                 Score
-                            </Card.Text>
+                            </Card.Text> */}
                         </Card.Body>
-                </Card><br></br>
+                </Card><br></br><br></br>
+                <div className="alert alert-light">
+                    <center><h3>Assessment Tips for Portal Dashboard</h3></center>
+                    <ol style={{textAlign: "justify", fontSize: "20px"}}>
+                        <li>. Review Instructions Carefully
+                        📌 Before starting any assessment, read all provided guidelines to understand the structure, time limit, and scoring criteria.</li>
+                        <li>. Check Your System Requirements
+                            🔹 Ensure your device is compatible with the portal (browser, internet speed, and necessary plugins).
+                            🔹 Use a stable internet connection to avoid disruptions.</li>
+                        <li>. Manage Your Time Wisely
+                        ⏳ Keep an eye on the timer, if applicable.
+                        📝 Plan your time per section to ensure you complete all questions before the deadline.</li>
+                        <li>. Verify Your Answers Before Submission
+                        🔍 Double-check responses, especially in objective and essay-type questions.
+                        🔄 If editing is allowed, review your work before submitting.</li>
+                        <li>. Follow the Integrity Policy
+                        ⚖️ Do not attempt cheating, copying, or using unauthorized materials. Violations may result in disqualification.</li>
+                        <li>. Submit Before the Deadline
+                        ✅ Make sure you finalize and submit your assessment well before the time expires to avoid last-minute issues.</li>
+
+                    </ol>
+                </div>
+                </div>
             </Col>
+
         </Row>
     </Container>
   );

@@ -11,6 +11,7 @@ import Courses from './component/courses';
 import Question from './component/create-question';
 import Candidate from './component/candidate';
 import Taketest from './component/taketest';
+import Result from './component/result';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/courses" element={<Courses/>}/>
             <Route path="/create-question" element={<Question/>}/>
             <Route path="/candidate" element={<Candidate/>}/>
+            <Route path="/result" element={<Result/>}/>
             <Route path="/help" element={<Help/>}/>
             <Route path="/setting" element={<Setting/>}/> 
         </Routes>

@@ -75,6 +75,19 @@ function Assessment() {
       .then(response=> alert(response.data.message))
       . catch(error => alert("there is error submitting your test score"))
 
+
+      const logouthandler = ()=> {
+        axios.get('http://localhost:3001/logout')
+        .then((response) =>{ 
+          if(response.data.message){
+            navigate('/')
+          }
+           })
+        .catch(error=> console.log(error))
+      }
+
+      logouthandler();
+
   };
 
 

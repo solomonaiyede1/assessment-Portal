@@ -6,6 +6,7 @@ import axios from 'axios'
 
 function Taketest() {
 
+  const [show, setShow] = useState(true)
   const [course, setCourse]= useState([])
 
     useEffect(()=>{
@@ -16,28 +17,37 @@ function Taketest() {
       .catch(error=> console.log(error))
     }, [])
 
+    const handler= ()=>{
+      setShow(!show)
+    }
+
   return (
     <Container fluid>
-        <Row style={{paddingTop: "20px", boxShadow: "10px 10px 10px rgba(0,0,0,0.1)", height: "70px"}}>
-            <Col md={3}>
-            <img src="logo_biro.jpeg" className="rounded-circle" style={{width: "30px", height: "auto"}} alt="image here" />
-            &nbsp;&nbsp;<span style={{fontWeight: 700}}>Birotojob Assessment Portal</span>
-            </Col>
-            <Col md={9}>
-            <div style={{fontSize: "18px", float: "right", marginRight: "30px"}}>
-              <i class="fa fa-bell" ></i> &nbsp;&nbsp;<i class="fa fa-user-circle-o" style={{fontSize: "18px"}}></i>
+              <Row style={{paddingTop: "20px", boxShadow: "10px 10px 10px rgba(0,0,0,0.1)", height: "70px"}}>
+        <Col md={12}>
+            <div className="logo"  style={{float: "left"}}>
+                <img src="logo_biro.jpeg" className="rounded-circle" style={{width: "30px", height: "auto"}} alt="image here" />
+                &nbsp;&nbsp;<span style={{fontWeight: 700}}> Assessment Portal</span>
             </div>
+            <div className="user" style={{float: "right"}}>
+            <Button onClick={handler} className="btn btn-light" id="bar">
+            <i className="fa fa-bars" aria-hidden="true" style={{fontSize: "24px"}}></i>
+            </Button>
+            </div>
+        </Col>
+      </Row>
+      <Row>
+          <Col md={2} style={{position: "relative", zIndex: "10"}}>
+          { show ? <Sidebar /> : "" }
             </Col>
-          </Row>
-          <Row>
-          <Col md={2}>
-                <Sidebar />
-            </Col>
-            <Col md={8} style={{display: "flex", flexDirection: "row", paddingTop: "20px", justifyContent:"space-around"}}><br/><br/>
-              <Row>
-                <Col md={12}>
+            <Col md={8}>
+            <div style={{display: "flex", flexWrap: "wrap", flexDirection: "row", paddingTop: "20px"}}>
+            <div className='alert alert-info' style={{width: "100%", height: "50px", fontSize: "20px", fontFamily: "calibri"}}>
+                Select Course Options below: 
+                </div>
+
                       <h6><b>Instructions: Select your course below</b></h6>
-                      <b>Note:</b>: You are allowed to Select only one course at a time. Clicking course indicate that you start immediately<br></br>
+                      <b>Note: You are allowed to Select only one course at a time. Clicking course indicate that you start immediately</b><br></br>
                       <span style={{lineHeight: "2.0"}}>
                           {course.map(res =>
                               <p style={{lineHeight: "2.0"}}>
@@ -48,12 +58,9 @@ function Taketest() {
                               </p>
                             )}
                       </span>
+                    </div>
                 </Col>
               </Row>
-           
-            </Col>
-            
-        </Row>
     </Container>
   );
 }

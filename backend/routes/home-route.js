@@ -71,7 +71,10 @@ router.post("/result", async (req, res) => {
   
 
 
-
+ router.get('/score', (req, res)=>{
+    Result.find()
+    .then(response=> res.json(response))
+ })
 
 
 
